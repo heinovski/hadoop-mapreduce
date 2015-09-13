@@ -39,7 +39,7 @@ public class KMeansReducer extends Reducer<ClusterCenter, Vector, ClusterCenter,
 		}
 
 		for (int i = 0; i < newCenter.getVector().length; i++) {
-			newCenter.getVector()[i] = newCenter.getVector()[i] / vectorList.size();
+			newCenter.getVector()[i] /= vectorList.size();
 		}
 
 		ClusterCenter center = new ClusterCenter(newCenter);
