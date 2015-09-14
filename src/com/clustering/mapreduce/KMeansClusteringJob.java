@@ -75,6 +75,7 @@ public class KMeansClusteringJob {
 		//long counter = job.getCounters().findCounter(KMeansReducer.ECounter.CONVERGED).getValue();
 		org.apache.hadoop.mapreduce.Counters tempCounters = job.getCounters();
 		org.apache.hadoop.mapreduce.Counter tempCounter = tempCounters.findCounter(KMeansReducer.ECounter.CONVERGED);
+		LOG.error(tempCounter.getClass());
 		long counter = tempCounter.getValue();
 		iteration++;
 		while (counter > 0) {

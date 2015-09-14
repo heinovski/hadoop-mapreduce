@@ -27,7 +27,7 @@ public class KMeansReducer extends Reducer<ClusterCenter, Vector, ClusterCenter,
 			throws IOException, InterruptedException {
 
 		Vector newCenter = new Vector();
-		List<Vector> vectorList = new LinkedList<>();
+		List<Vector> vectorList = new LinkedList<Vector>();
 		int vectorSize = key.getCenter().getVector().length;
 		newCenter.setVector(new double[vectorSize]);
 
