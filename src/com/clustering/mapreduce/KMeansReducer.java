@@ -16,7 +16,7 @@ import com.clustering.model.Vector;
 
 public class KMeansReducer extends Reducer<ClusterCenter, Vector, ClusterCenter, Vector> {
 
-	public static enum Counter {
+	public static enum ECounter {
 		CONVERGED
 	}
 
@@ -48,8 +48,10 @@ public class KMeansReducer extends Reducer<ClusterCenter, Vector, ClusterCenter,
 			context.write(center, vector);
 		}
 
-		if (center.converged(key))
-			context.getCounter(Counter.CONVERGED).increment(1);
+		if (center.converged(key)) {
+			context.getCounter(ECounter.CONVERGED).increment(1);
+			//context.getCounter(KMeansReducer.ECounter.CONVERGED).increment(1);
+		}
 
 	}
 

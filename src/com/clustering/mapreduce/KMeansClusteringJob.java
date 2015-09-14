@@ -72,7 +72,7 @@ public class KMeansClusteringJob {
 
 		job.waitForCompletion(true);
 
-		long counter = job.getCounters().findCounter(KMeansReducer.Counter.CONVERGED).getValue();
+		long counter = job.getCounters().findCounter(KMeansReducer.ECounter.CONVERGED).getValue();
 		iteration++;
 		while (counter > 0) {
 			conf = new Configuration();
@@ -100,7 +100,7 @@ public class KMeansClusteringJob {
 
 			job.waitForCompletion(true);
 			iteration++;
-			counter = job.getCounters().findCounter(KMeansReducer.Counter.CONVERGED).getValue();
+			counter = job.getCounters().findCounter(KMeansReducer.ECounter.CONVERGED).getValue();
 		}
 
 		Path result = new Path("files/clustering/depth_" + (iteration - 1) + "/");
