@@ -49,9 +49,7 @@ public class KMeansReducer extends Reducer<ClusterCenter, Vector, ClusterCenter,
 		}
 
 		if (center.converged(key)) {
-			org.apache.hadoop.mapreduce.Counter tempCounter = context.getCounter(KMeansReducer.ECounter.CONVERGED);
-			tempCounter.increment(1);
-			//context.getCounter(KMeansReducer.ECounter.CONVERGED).increment(1);
+			context.getCounter(KMeansReducer.ECounter.CONVERGED).increment(1);
 		}
 
 	}
